@@ -1,5 +1,6 @@
 const { server } = require('./server')
-const { Verifier } = require("@pact-foundation/pact")
+const { Verifier } = require('@pact-foundation/pact')
+const { brokerUrl } = require('../../config')
 
 // Verify that the provider meets all consumer expectations
 describe('Pact Verification', () => {
@@ -7,7 +8,7 @@ describe('Pact Verification', () => {
     const opts = {
         provider: 'OrderApi',
         providerBaseUrl: `http://localhost:${port}`,
-        pactBrokerUrl: 'http://localhost:8080/',
+        pactBrokerUrl: brokerUrl,
         publishVerificationResult: true,
         tags: ['prod'],
         providerVersion: '1.0.' + process.env.HOSTNAME,

@@ -33,7 +33,7 @@ const fetchOrders = async () => {
 const fetchOrder = async (id) => {
     const res = await fetch(`http://localhost:3000/orders/${id}`)
     const json = await res.json()
-    return json.item ?? {}
+    return json.item || {}
 }
 
 module.exports = {

@@ -1,11 +1,12 @@
-const path = require("path")
-const { Publisher } = require("@pact-foundation/pact")
+const path = require('path')
+const { Publisher } = require('@pact-foundation/pact')
+const { brokerUrl } = require('../../config')
 
 const opts = {
-    pactBroker: 'http://localhost:8080/',
-    consumerVersion: '2.0.0',
+    pactBroker: brokerUrl,
+    consumerVersion: '1.0.0',
     publishVerificationResult: true,
-    pactFilesOrDirs: [path.resolve(process.cwd(), "pacts")],
+    pactFilesOrDirs: [path.resolve(process.cwd(), 'pacts')],
 }
 console.log("Start Pact publisher")
 new Publisher(opts)
