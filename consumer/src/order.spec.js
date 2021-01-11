@@ -48,25 +48,15 @@ describe('Pact with Order API', () => {
                     '/orders',
                     'GET',
                     {
-                        items: [
-                            like({
-                                id: 1,
-                                name: 'burger',
-                                quantity: 2,
-                                value: 20,
-                            }),
-                            like({
-                                id: 2,
-                                name: 'coke',
-                                quantity: 2,
-                                value: 5,
-                            }),
-                        ],
+                        items: eachLike({
+                            id: 1,
+                            name: 'burger',
+                            quantity: 2,
+                            value: 20,
+                        }),
                     },
                     200,
                 ))
-                const orders = await fetchOrders()
-                expect(orders.length).toBe(2)
             })
 
             it('will receive the list of current orders', async () => {

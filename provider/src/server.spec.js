@@ -11,7 +11,7 @@ describe('Pact Verification', () => {
         pactBrokerUrl: brokerUrl,
         publishVerificationResult: true,
         tags: ['prod'],
-        providerVersion: '1.0.' + process.env.HOSTNAME,
+        providerVersion: '1.0.0',
     }
     let runningServer;
 
